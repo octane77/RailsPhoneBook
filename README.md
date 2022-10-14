@@ -1,24 +1,21 @@
-# README
+An implementation of a Phonebook application using the Ruby programming language, Ruby on Rails backend framework and sqlite3 database for persistence
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Project Overview: The core deliverable of this project is a menu-driven software program that enables users to easily store, edit, delete and find contact information, such as names and telephone numbers.
 
-Things you may want to cover:
+Request Method - REST(GET, POST, PATCH)
 
-* Ruby version
+API Version - 1.0
 
-* System dependencies
+Response Format - JSON
 
-* Configuration
+Tools Used:
 
-* Database creation
+Languages: Ruby
 
-* Database initialization
+IDE: Jetbrains RubyMine
 
-* How to run the test suite
+Version Control: Git, Github
 
-* Services (job queues, cache servers, search engines, etc.)
+Backend Framework: Rails
 
-* Deployment instructions
-
-* ...
+Database: sqlite3
