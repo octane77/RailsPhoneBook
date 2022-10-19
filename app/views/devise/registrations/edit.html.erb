@@ -1,7 +1,7 @@
 <style>
-    div {
-        width: 200px;
-    }
+  div.field{
+      width: 250px;
+  }
 </style>
 
 <h2>Edit Profile</h2>
@@ -11,8 +11,8 @@
 
   <div class="field">
     <%#= f.label :email %>
-    <br />
     <%= f.email_field :email, class: "form-control form-control-sm", placeholder: "Email Address", autofocus: true, autocomplete: "email" %>
+    <br/>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -20,17 +20,17 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, class: "form-control form-control-sm", placeholder: "Password", autocomplete: "new-password" %>
+    <h6>Leave blank if you don't want it changed</h6>
     <% if @minimum_password_length %>
-      <br />
       <em><%= @minimum_password_length %> characters minimum</em>
     <% end %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%#= f.label :password_confirmation %>
+    <br />
+    <%= f.password_field :password_confirmation,class: "form-control form-control-sm", placeholder: "Confirm Password", autocomplete: "new-password" %>
   </div>
 
   <div class="field">
