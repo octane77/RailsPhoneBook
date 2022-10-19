@@ -31,4 +31,6 @@
 
 <!--</div>-->
 <!--<br>-->
+<% if user_signed_in? %>
 <%= link_to "New contact", new_contact_path, class:"btn btn-outline-secondary btn-sm" %>
+<% end %>
