@@ -16,8 +16,10 @@
     <td><%= contact.last_name %></td>
     <td><%= contact.email %></td>
     <td><%= contact.phone_number %></td>
+    <td><%= contact.user %></td>
     <td><%= link_to "Edit", edit_contact_path(contact.id), class:"btn btn-outline-primary btn-sm"%> <%= link_to "Delete", contact, class:"btn btn-outline-danger btn-sm", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this contact?" } %> </td>
 <!--    <br>-->
+
   </tr>
 <% end %>
 </tbody>

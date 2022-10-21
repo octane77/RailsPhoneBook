@@ -1,6 +1,7 @@
 class ContactsController < ApplicationController
   before_action :set_contact, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :correct_user, only: [:edit, :update, :destroy]
   # GET /contacts or /contacts.json
   def index
     @contacts = Contact.all
@@ -57,6 +58,11 @@ class ContactsController < ApplicationController
     end
   end
 
+  def correct_user
+    @contact = current_user.contacts.find_by(id: params[:id])
+    redirect_to_friends_path, notice = "You're not authorized to edit this contact" if @contact.nil?
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_contact
@@ -65,6 +71,6 @@ class ContactsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def contact_params
-      params.require(:contact).permit(:first_name, :last_name, :email, :phone_number)
+      params.require(:contact).permit(:first_name, :last_name, :email, :phone_number, :user_id)
     end
 end
