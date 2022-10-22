@@ -13,7 +13,8 @@ class ContactsController < ApplicationController
 
   # GET /contacts/new
   def new
-    @contact = Contact.new
+    # @contact = Contact.new
+    @contact = current_user.contacts.build
   end
 
   # GET /contacts/1/edit
@@ -22,7 +23,8 @@ class ContactsController < ApplicationController
 
   # POST /contacts or /contacts.json
   def create
-    @contact = Contact.new(contact_params)
+    # @contact = Contact.new(contact_params)
+    @contact = current_user.contacts.build(contact_params)
 
     respond_to do |format|
       if @contact.save
@@ -60,7 +62,7 @@ class ContactsController < ApplicationController
 
   def correct_user
     @contact = current_user.contacts.find_by(id: params[:id])
-    redirect_to_friends_path, notice = "You're not authorized to edit this contact" if @contact.nil?
+    redirect_to contacts_path, notice: "You're not authorized to edit or delete this contact" if @contact.nil?
   end
 
   private
