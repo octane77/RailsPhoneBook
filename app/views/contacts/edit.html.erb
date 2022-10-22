@@ -1,4 +1,20 @@
+<style>
+    div.card-header{
+        width: 350px;
+    }
+    div.card{
+        width: 350px;
+    }
+</style>
+
+<div class="card">
+  <div class="card-header">
 <h3>Edit contact</h3>
-<%= render "form", contact: @contact %>
-<br>
-<%= link_to "Back to contact list", contacts_path, class: "btn btn-outline-secondary btn-sm" %>
+  </div>
+  <div class="card-body">
+    <%= render "form", contact: @contact %>
+    <br>
+    <%= link_to "Back to contact list", contacts_path, class: "btn btn-outline-secondary btn-sm" %>
+    <%= link_to "Delete", @contact, class:"btn btn-outline-danger btn-sm", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this contact?" } %>
+  </div>
+</div>
